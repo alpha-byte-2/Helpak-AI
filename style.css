@@ -1,0 +1,172 @@
+/* Reset default browser margins */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #0f172a; 
+    color: #f8fafc; 
+    height: 100vh; /* Takes up the full height of the screen */
+    width: 100vw;  /* Takes up the full width of the screen */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents the whole page from scrolling, only the chat box scrolls */
+}
+
+/* Full Area Container */
+.chat-container { 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%; 
+    height: 100%; 
+    background: #0f172a; 
+}
+
+/* Professional App Header */
+.header { 
+    background: rgba(15, 23, 42, 0.9); 
+    backdrop-filter: blur(10px); /* Gives a modern blurred glass effect */
+    padding: 16px 24px; 
+    border-bottom: 1px solid #1e293b; 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    color: #e2e8f0; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    z-index: 10;
+}
+
+/* Green dot "Online" indicator */
+.header::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+/* Chat Area */
+.chat-box { 
+    flex: 1; 
+    padding: 30px 10%; /* Uses percentages to look good on wide screens */
+    overflow-y: auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 24px; 
+    scroll-behavior: smooth;
+}
+
+/* Custom Real-World Scrollbar */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* Message Bubbles */
+.message { 
+    padding: 16px 20px; 
+    border-radius: 16px; 
+    max-width: 75%; 
+    line-height: 1.6; 
+    font-size: 1rem; 
+    word-wrap: break-word; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    animation: fadeIn 0.3s ease-out; /* Smooth pop-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* User Message Design */
+.user { 
+    background: #2563eb; 
+    color: white; 
+    align-self: flex-end; 
+    border-bottom-right-radius: 4px; /* Gives the classic chat tail look */
+}
+
+/* Bot Message Design */
+.bot { 
+    background: #1e293b; 
+    color: #f1f5f9; 
+    align-self: flex-start; 
+    border-bottom-left-radius: 4px; 
+    border: 1px solid #334155; 
+}
+
+/* Input Area Gradient background */
+.input-area { 
+    padding: 20px; 
+    background: linear-gradient(180deg, transparent, #0f172a 20%); 
+    display: flex; 
+    justify-content: center; /* Centers the input bar */
+}
+
+/* Modern Floating Input Bar */
+.input-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 800px; /* Keeps the input from getting too wide on huge monitors */
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 30px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: all 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+input { 
+    flex: 1; 
+    padding: 12px 16px; 
+    background: transparent; 
+    border: none; 
+    color: white; 
+    font-size: 1rem; 
+}
+
+input:focus { 
+    outline: none; 
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+button { 
+    padding: 12px 24px; 
+    background: #3b82f6; 
+    color: white; 
+    border: none; 
+    border-radius: 20px; 
+    font-weight: 600; 
+    font-size: 0.95rem;
+    cursor: pointer; 
+    transition: background 0.2s, transform 0.1s; 
+}
+
+button:hover { 
+    background: #2563eb; 
+}
+
+button:active {
+    transform: scale(0.95); /* Button clicks down slightly when pressed */
+}
