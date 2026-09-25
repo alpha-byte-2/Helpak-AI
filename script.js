@@ -15,8 +15,7 @@ async function sendMessage() {
     appendMessage(text, 'user');
     userInput.value = '';
 
-    // FIXED: Instead of hardcoding 'localhost', we just use '/api/chat'. 
-    // This allows it to work on your laptop AND on AWS automatically!
+   
     const BACKEND_URL = '/api/chat'; 
     
     try {
