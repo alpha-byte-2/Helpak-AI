@@ -1,13 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path'); // NEW: Built-in Node tool for file paths
+const path = require('path'); 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// NEW: This tells your server to host your HTML, CSS, and JS files to the public!
+
 app.use(express.static(__dirname)); 
 
 const SYSTEM_PROMPT = `
@@ -55,7 +55,7 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
-// NEW: If a user visits your website, send them the index.html file
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
