@@ -1,59 +1,175 @@
-# Helpak AI - DSA Mock Interviewer
+# 🤖 Helpak AI — DSA Mock Interviewer
+## 🌐 Live Demo
+🚀 **[Try Helpak AI](http://13.63.154.225:3000/)**
 
-Helpak AI is an interactive, real-time web application designed to help software engineers practice and master Data Structures and Algorithms (DSA) interviews. By leveraging the Gemini API, the application simulates a professional technical interview environment, offering structured problem-solving, real-time feedback, and a hint-based learning system.
+**Helpak AI** is an AI-powered technical mock interviewer designed to help developers prepare for **DSA and coding interviews**.
 
-## Key Features
+Instead of directly giving you the solution, Helpak AI behaves like a technical interviewer. It presents an interview problem, asks you to explain your approach, evaluates your reasoning, and focuses on **time and space complexity** while providing hints when you get stuck.
 
-- Interactive Mock Interviews: Simulates a professional interviewer persona.
-- Topic-Focused Learning: Users can request specific DSA topics.
-- Hint System: Provides guidance rather than direct solutions, fostering deep learning.
-- Cloud-Ready Architecture: Designed for deployment on scalable cloud infrastructure.
+## 🚀 Features
 
-## Tech Stack
+* 🤖 AI-powered DSA mock interviews
+* 💬 Interactive chat-based interview experience
+* 🧠 Focuses on problem-solving and conceptual thinking
+* ⏱️ Discusses time complexity
+* 💾 Discusses space complexity
+* 💡 Provides hints instead of immediately revealing solutions
+* 📝 Maintains conversation history during the interview
+* 🌙 Modern dark-themed interface
+* ⚡ Fast and responsive chat experience
 
-- Frontend: HTML5, CSS3, Vanilla JavaScript.
-- Backend: Node.js, Express.js.
-- AI Engine: Google Gemini API (Flash Model).
-- Deployment: AWS EC2 (Ubuntu).
+## 🛠️ Tech Stack
 
-## System Architecture & Trade-offs
+**Frontend**
 
-### Architecture
-The application follows a standard Client-Server-AI architecture:
-1. Client: The user interacts with a responsive frontend.
-2. Server: A Node.js backend handles secure API requests to the Google Gemini model.
-3. Deployment: The application is hosted on an AWS EC2 instance.
+* HTML5
+* CSS3
+* JavaScript
 
-### Trade-offs
-- Complexity vs. Simplicity: We chose a Vanilla JavaScript frontend to reduce build time and complexity for a single-developer deployment.
-- Security: By proxying all AI requests through our Node server, we added a layer of latency but gained crucial security, ensuring your API key remains hidden from the browser client.
+**Backend**
 
-## Getting Started
+* Node.js
+* Express.js
+* CORS
+* dotenv
 
-1. Clone the repository:
-   git clone https://github.com/alpha-byte-2/Helpak-AI.git
-   cd Helpak-AI
+**AI**
 
-2. Install dependencies:
-   npm install express cors dotenv
+* Google Gemini 2.5 Flash API
 
-3. Setup Environment Variables:
-   Create a .env file in the root folder and add your API key:
-   GEMINI_API_KEY=your_actual_api_key_here
+## 🏗️ How It Works
 
-4. Run the server:
-   node server.js
+```text
+                ┌─────────────────┐
+                │     User        │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │  Chat Interface │
+                │ HTML/CSS/JS     │
+                └────────┬────────┘
+                         │
+                    POST /api/chat
+                         │
+                         ▼
+                ┌─────────────────┐
+                │  Express.js     │
+                │    Backend      │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │  Gemini 2.5     │
+                │  Flash API      │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ AI Interviewer  │
+                │    Response     │
+                └─────────────────┘
+```
 
-5. Visit: http://localhost:3000
+## 🧠 Interview Approach
 
-## Deployment (AWS EC2)
-The application is deployed on an AWS Ubuntu EC2 instance.
-- Runtime: Node.js (via PM2 for process management).
-- Firewall: Port 3000 is opened via AWS Security Groups for inbound TCP traffic.
-- Process Management: Used pm2 to ensure the Helpak AI engine runs continuously.
+Helpak AI follows a structured interview style:
 
+1. Introduces the interview problem.
+2. Allows the candidate to think and explain their approach.
+3. Asks about time and space complexity.
+4. Avoids immediately providing the complete solution.
+5. Provides subtle hints when the candidate gets stuck.
+6. Continues the conversation based on the candidate's responses.
 
+The goal is to make DSA practice feel more like a **real technical interview** rather than simply solving problems with an AI.
 
+## 📂 Project Structure
 
+```text
+Helpak-AI/
+│
+├── index.html        # Frontend structure
+├── style.css         # UI styling
+├── script.js         # Frontend logic & API communication
+├── server.js         # Express backend & Gemini integration
+├── package.json      # Dependencies and scripts
+├── .gitignore
+└── README.md
+```
 
-   
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/alpha-byte-2/Helpak-AI.git
+```
+
+### 2. Navigate to the project
+
+```bash
+cd Helpak-AI
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Create `.env`
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+### 5. Start the application
+
+```bash
+npm start
+```
+
+The application will run on:
+
+```text
+http://localhost:3000
+```
+
+## 🔑 Environment Variables
+
+| Variable         | Description                                |
+| ---------------- | ------------------------------------------ |
+| `GEMINI_API_KEY` | Google Gemini API key                      |
+| `PORT`           | Server port (optional, defaults to `3000`) |
+
+> **Important:** Never commit your `.env` file or expose your Gemini API key publicly.
+
+## 🔮 Future Improvements
+
+* [ ] Easy / Medium / Hard difficulty selection
+* [ ] DSA topic selection
+* [ ] Interview scoring system
+* [ ] Automated complexity evaluation
+* [ ] Timed interview sessions
+* [ ] Code-writing interview rounds
+* [ ] Interview performance dashboard
+* [ ] User authentication
+* [ ] Persistent interview history
+* [ ] Voice-based mock interviews
+
+## 🎯 Purpose
+
+Helpak AI was built to make **DSA interview preparation more interactive and realistic** by focusing not only on the final solution but also on how a candidate thinks, communicates, and analyzes a problem.
+
+## 👨‍💻 Author
+
+**Aman Choudhary**
+
+GitHub: [@alpha-byte-2](https://github.com/alpha-byte-2)
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
